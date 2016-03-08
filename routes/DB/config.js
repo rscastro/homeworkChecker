@@ -15,7 +15,8 @@ else if(process.env.DATABASE_URL){
 	pg.connect(process.env.DATABASE_URL, function(err, client) {
   if (err) throw err;
   console.log('Connected to postgres! Getting schemas...');
-
+var db = client;
+module.exports = db;
   client
     .query('SELECT table_schema,table_name FROM information_schema.tables;')
     .on('row', function(row) {
@@ -29,8 +30,8 @@ var connectionString = process.env.DATABASE_URL||"postgres://localhost:5432/edmo
 }
 
 //create new db instance
-var db = pgp(connectionString);
-module.exports = db;
+//var db = pgp(connectionString);
+//module.exports = db;
 
 //to test locally you must create a database 'wayd' in postgres
 
