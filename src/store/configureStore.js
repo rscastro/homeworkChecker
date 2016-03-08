@@ -13,7 +13,8 @@ export default function configureStore(initialState, browserHistory) {
     process.env.NODE_ENV === `development`, // eslint-disable-line no-unused-vars
   });
 
-  let middleware = applyMiddleware(thunkMiddleware, logger, routerMiddleware);
+  let middleware = applyMiddleware(thunkMiddleware, routerMiddleware);
+  //let middleware = applyMiddleware(thunkMiddleware, logger, routerMiddleware);
 
   const store = middleware(createStore)(rootReducer, initialState);
 

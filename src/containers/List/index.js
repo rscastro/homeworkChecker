@@ -37,7 +37,6 @@ export class List extends Component {
 
   submitAnswer = (event) => {
     event.preventDefault();
-    console.log(this.state.answer)
     const answertime = new Date()
 
 
