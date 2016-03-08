@@ -1,7 +1,7 @@
 Homework Checker
 =========================
 
-![SS](https://raw.githubusercontent.com/rscastro/homeworkChecker/homeworkss.png)
+![SS](https://raw.githubusercontent.com/rscastro/homeworkChecker/blob/master/homeworkss.png)
 
 ## Table of Contents
 
