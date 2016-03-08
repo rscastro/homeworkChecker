@@ -28,7 +28,7 @@ Runs the project in development mode with hot-reloading of `src` folder.
 Open your browser at [http://localhost:3000](http://localhost:3000).
 
 ## Contribution
-- [SEE HERE](https://github.com/rscastro/homeworkChecker/blob/master/CONTRIBUTION.md)
+- [SEE HERE](https://github.com/rscastro/homeworkChecker/blob/master/CONTRIBUTING.md)
 
 
 
