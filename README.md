@@ -28,6 +28,8 @@ $ npm start
 Runs the project in development mode with hot-reloading of `src` folder. 
 Open your browser at [http://localhost:3000](http://localhost:3000).
 
+At the moment, there is no form/module to insert users/assignments/connections into the DB. They have to be inserted through a POST request onto the necessary API routes, or inserted directly on the psql CLI.
+
 ## Contribution
 - [SEE HERE](https://github.com/rscastro/homeworkChecker/blob/master/CONTRIBUTING.md)
 
