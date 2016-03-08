@@ -1,5 +1,5 @@
 :local(.styles) {
-  position: fixed;
+display: block;
   z-index: 1;
 
   width: 100%;
@@ -8,6 +8,10 @@
   opacity: 1;
 
   background: rgba(0, 0, 0, .8);
+
+  #errorCheck{
+  color: white;
+  }
 
   a, a:hover {
     color: #FFF;

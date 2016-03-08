@@ -1,0 +1,1 @@
+select * from users, answers where answers.student = users.id AND answers.assignment_id = $1;

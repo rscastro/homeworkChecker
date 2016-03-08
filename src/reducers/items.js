@@ -1,47 +1,10 @@
 const initialState = {
-  items: [{
-    text: 'React',
-    done: true,
-  }, {
-    text: 'Redux',
-    done: true,
-  }, {
-    text: 'React router',
-    done: true,
-  }, {
-    text: 'Babel 6',
-    done: true,
-  }, {
-    text: 'Bootstrap webpack',
-    done: true,
-  }, {
-    text: 'Sass modules (sass-loader css-loader style-loader)',
-    done: true,
-  }, {
-    text: 'React transform',
-    done: true,
-  }, {
-    text: 'Redux logger',
-    done: true,
-  }, {
-    text: 'React document meta',
-    done: true,
-  }, {
-    text: 'Redux form',
-    done: true,
-  }, {
-    text: 'Redux simple router',
-    done: true,
-  }, {
-    text: 'Karma',
-    done: true,
-  }, {
-    text: 'Mocha',
-    done: true,
-  }, {
-    text: 'Server-side rendering',
-    done: false,
-  }],
+  user: '',
+  items: [],
+  question: '',
+  answers: [],
+  user_answers: [],
+  login_error: false
 };
 
 export function items(state = initialState, action) {
@@ -64,6 +27,54 @@ export function items(state = initialState, action) {
         ...state.items.slice(+action.index + 1),
       ],
     };
+
+    case 'LOGIN_ERROR':
+      return {
+        ...state,
+        login_error: action.val ,
+      };
+
+    case 'SET_QUESTION':
+    return {
+      ...state,
+      question: action.question
+    };
+    case 'USER_ANSWERS':
+    return {
+      ...state,
+      user_answers: action.set
+    };
+
+    case 'SET_USER':
+    console.log('SHOULD BE FROM API', action.payload)
+      return {
+        ...state,
+        items: action.payload.data,
+        user: action.payload.user,
+      };
+      case 'SET_ANSWERS':
+      console.log('SHOULD BE FROM API', action.payload)
+        return {
+          ...state,
+          answers: action.payload,
+        };
+        case 'LOGOUT':
+        return {
+          ...state,
+          question: '',
+          answers: [],
+          user_answers: [],
+          user: '',
+          items: []
+        };
+
+      case 'RESET':
+        return {
+          ...state,
+          question: '',
+          answers: [],
+          user_answers: [],
+        };
 
   default:
     return state;

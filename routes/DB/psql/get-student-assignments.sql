@@ -1,0 +1,1 @@
+SELECT * FROM assignments WHERE id in (SELECT assignment from stud_to_assign WHERE student =(SELECT id from users where user_name=$1));

@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
 import LoadingOrderAnimation from 'react-loading-order-with-animation';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 /* utils */
 import { setParallax } from '../../utils/parallax';
 
 /* component styles */
 import { styles } from './styles.scss';
+
+import * as actionCreators from 'actions/items';
+
+@connect(
+  state => state.items,
+  dispatch => bindActionCreators(actionCreators, dispatch)
+)
 
 export class TopImage extends Component {
 
@@ -38,7 +48,7 @@ export class TopImage extends Component {
                 wait={700}
               >
                 <h1 className="title">
-                  Redux Easy Boilerplate
+                  Good to see you again, {this.props.user.full_name}
                 </h1>
               </LoadingOrderAnimation>
               <LoadingOrderAnimation animation="fade-in"
