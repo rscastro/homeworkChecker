@@ -8,8 +8,7 @@
     "build:production": "npm run clean && npm run build",
     "lint": "eslint src",
     "start": "node bin/server.js",
-    "test": "karma start",
-    "postinstall": "npm install"
+    "test": "karma start"
   },
   "repository": {
     "type": "git",
@@ -31,6 +30,21 @@
   "license": "MIT",
 
   "devDependencies": {
+    
+  },
+  "dependencies": {
+    "bluebird": "^3.3.3",
+    "body-parser": "^1.15.0",
+    "jquery": "^2.2.0",
+    "moment": "^2.11.2",
+    "path": "^0.12.7",
+    "pg-promise": "^3.3.0",
+    "react": "^0.14.6",
+    "react-redux": "^4.0.6",
+    "react-router": "^2.0.0-rc5",
+    "redux": "^3.1.4",
+    "request": "^2.69.0",
+    "sql-load": "0.0.2",
     "autoprefixer": "6.3.1",
     "babel-core": "^6.4.5",
     "babel-eslint": "^5.0.0-beta6",
@@ -89,19 +103,5 @@
     "webpack-dev-server": "^1.14.1",
     "webpack-hot-middleware": "^2.6.0",
     "webpack-merge": "^0.7.3"
-  },
-  "dependencies": {
-    "bluebird": "^3.3.3",
-    "body-parser": "^1.15.0",
-    "jquery": "^2.2.0",
-    "moment": "^2.11.2",
-    "path": "^0.12.7",
-    "pg-promise": "^3.3.0",
-    "react": "^0.14.6",
-    "react-redux": "^4.0.6",
-    "react-router": "^2.0.0-rc5",
-    "redux": "^3.1.4",
-    "request": "^2.69.0",
-    "sql-load": "0.0.2"
   }
 }
