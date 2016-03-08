@@ -1,0 +1,18 @@
+FROM node
+RUN mkdir server
+
+
+WORKDIR app
+
+# TODO: ADD all the application code into /server
+ADD . /app
+
+
+
+
+
+
+EXPOSE 3000 
+# This command allows us to access the web server port from outside the container
+CMD ["npm", "rebuild", "node-sass"] # `package.json` already provides this command
+CMD ["npm", "start"] # `package.json` already provides this command

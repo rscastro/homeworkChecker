@@ -1,0 +1,15 @@
+server:
+  build: .
+  dockerfile: Dockerfile-server
+  ports:
+   - 80:3000
+  environment:
+    DEPLOYED: "true"
+    NODE_ENV: "production"
+  links:
+   # - redis
+   - postgres
+
+
+postgres:
+  image: postgres

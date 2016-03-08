@@ -19,6 +19,7 @@ $ git clone https://github.com/rscastro/homeworkChecker.git
 $ cd homeworkChecker
 $ npm install
 ```
+- You must have PostgresSQL installed on your machine with a database named 'edmodo' created. Once you run npm start, all the necessary tables will be created. 
 
 ## Development
 ```

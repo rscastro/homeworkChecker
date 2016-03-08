@@ -28,9 +28,6 @@
     "webpack"
   ],
   "license": "MIT",
-  "authors": [
-    "Richard Castro (https://github.com/rscastro)",
-  ],
 
   "devDependencies": {
     "autoprefixer": "6.3.1",
