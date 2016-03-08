@@ -23,21 +23,16 @@ export class Items extends Component {
   showQuestion = (event) => {
     event.preventDefault();
     this.props.initializeQuestion({question: event.currentTarget.dataset.index, id: event.currentTarget.dataset.id})
-   // console.log('CLIENT QUESTION SET', event.currentTarget.dataset)
   };
 
   populateAnswers = (event) => {
-    console.log('HITTTING POPULATE')
     event.preventDefault();
     this.props.initializeAnswers(event.currentTarget.dataset.id)
-    console.log('ANSWERS QUESTION SET', this.props.answers)
   };
 
   latestAnswers = (event) => {
-    console.log('HITTTING LATEST')
     event.preventDefault();
     var fullSet = this.props.answers;
-    console.log(fullSet)
     fullSet = fullSet.filter(function(elem){
       return (elem.student === Number(event.currentTarget.dataset.id) && elem.assignment_id === Number(event.currentTarget.dataset.index));
     })
@@ -47,7 +42,7 @@ export class Items extends Component {
 
   render() {
     const { items } = this.props;
-    if(this.props.user.user_name === 'nfury' && this.props.answers.length === 0){
+    if(this.props.user.type === 'teacher' && this.props.answers.length === 0){
       return (
         <div className={styles}>
           {!items.length && <span>Array is empty</span>}
@@ -73,7 +68,7 @@ export class Items extends Component {
           </div>
       );
     }
-    else if(this.props.user.user_name === 'nfury' &&  this.props.answers.length !==0 && this.props.user_answers.length ===0){
+    else if(this.props.user.type === 'teacher' &&  this.props.answers.length !==0 && this.props.user_answers.length ===0){
       let { answers } = this.props;
       answers = answers.sort(function(a, b) {
     a = new Date(a.answer_date);
@@ -120,7 +115,7 @@ export class Items extends Component {
           </div>
       );
     }
-    else if(this.props.user.user_name === 'nfury' &&  this.props.answers.length !==0 && this.props.user_answers.length !==0){
+    else if(this.props.user.type === 'teacher' &&  this.props.answers.length !==0 && this.props.user_answers.length !==0){
       const { user_answers } = this.props;
       return (
         <div className={styles}>

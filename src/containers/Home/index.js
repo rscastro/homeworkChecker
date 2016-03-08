@@ -12,8 +12,7 @@ import { setParallax } from '../../utils/parallax';
 
 /* components */
 import { TopImage } from 'components/TopImage';
-import { Tools } from 'components/Tools';
-import { Projects } from 'components/Projects';
+
 
 
 
@@ -78,7 +77,6 @@ export class Home extends Component {
       
     }
     else{
-      console.log('main')
       return (
         <section>
           <DocumentMeta {...metaData} />

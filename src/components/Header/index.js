@@ -22,14 +22,29 @@ export class Header extends Component {
     event.preventDefault();
   };
   submitUser = () =>{
-    const that = this.props;
-    let error = false;
+    const that = this;
+    this.props.reset()
     if(this.state){
-       this.props.setUser(this.state.inputName, function(error){
-      that.loginError(true);
-      error = true;
-      that.logout();
-    });
+
+      $.ajax({
+        method: 'GET',
+        url: '/api/user/' + this.state.inputName,
+        dataType: 'json',
+        cache: false,
+        success: function (data) {
+               that.props.setUser(data.user, function(error){
+              that.props.loginError(true);
+              that.logout();
+            });
+        },
+        error: function (error) {
+          that.props.loginError(true);
+              that.logout();
+        }
+      });
+
+
+       
     }
    
 
@@ -46,7 +61,6 @@ export class Header extends Component {
 
   };
   render() {
-    console.log(this.props)
     return (
       <header className={`${styles}`}> 
         <div className="container">

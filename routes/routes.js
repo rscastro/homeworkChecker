@@ -35,6 +35,22 @@ router.route('/teacherassignments/:id')
     })
   });
 
+router.route('/user/:id')
+  .get(function(req, res) {
+
+    var loc = req.params;
+
+    UserModel.getUserInfo(loc.id, function(error, userResults) {
+      if (!userResults.length) {
+        res.send(404)
+      } else {
+        res.json({user: userResults[0]})
+      }
+
+
+    })
+  });
+
 
 router.route('/studentassignments/:username')
   .get(function(req, res) {

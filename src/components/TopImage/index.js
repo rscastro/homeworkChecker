@@ -58,7 +58,7 @@ export class TopImage extends Component {
                 wait={900}
               >
                 <p>
-                  Start your project easy and fast with modern tools
+                  Please visit the <a href='/#/list'>Assignments</a> page to see your homework questions
                 </p>
               </LoadingOrderAnimation>
             </div>

@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import DocumentMeta from 'react-document-meta';
 
 import { Items } from 'components/Items';
-import { AddItem } from 'components/AddItem';
 
 /* actions */
 import * as actionCreators from 'actions/items';
@@ -41,7 +40,6 @@ export class List extends Component {
     console.log(this.state.answer)
     const answertime = new Date()
 
-    console.log('RICHARD TODAY', answertime)
 
     $.ajax({
             method:'POST',
@@ -86,8 +84,10 @@ export class List extends Component {
 
 
   render() {
-    console.log('NEWEST PROPS', this.props)
-    if(this.props.user.user_name === 'nfury'  && this.props.answers.length === 0){
+    if(this.props.user.type === 'teacher'){
+
+
+    if(this.props.answers.length === 0){
       return (
         <section>
           <DocumentMeta {...metaData} />
@@ -110,32 +110,8 @@ export class List extends Component {
         </section>
       );
     }
-    else if(this.props.user.user_name !== 'nfury' && this.props.question === "" && this.props.user){
-
-
-    return (
-      <section>
-        <DocumentMeta {...metaData} />
-        <div className="container">
-
-        
-
-          <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6
-                            col-md-offset-3 col-lg-offset-3">
-              <h2>
-                Student Assignments:
-              </h2>
-              <Items {...this.props} />
-            </div>
-
-            
-          </div>
-        </div>
-      </section>
-    );
-  }
-  else if(this.props.user.user_name === 'nfury' && this.props.answers.length !== 0 && this.props.user_answers.length === 0){
+    
+  else if(this.props.answers.length !== 0 && this.props.user_answers.length === 0){
     return (
         <section>
           <DocumentMeta {...metaData} />
@@ -162,8 +138,7 @@ export class List extends Component {
         </section>
       );
   }
-  else if(this.props.user.user_name === 'nfury' && this.props.user_answers){
-    console.log('WAI YOU NO GO IN HERASDASDASDASDASE')
+  else if(this.props.user_answers){
     return (
         <section>
           <DocumentMeta {...metaData} />
@@ -194,8 +169,11 @@ export class List extends Component {
         </section>
       );
   }
-  else if(this.props.user.user_name !== 'nfury' && this.props.question){
-    console.log('WAI YOU NO GO IN HERASDASDASDASDASE')
+}
+else{
+
+
+  if(this.props.question){
     return(
      <section>
         <DocumentMeta {...metaData} />
@@ -239,6 +217,31 @@ export class List extends Component {
       </section>
       );
   }
+  else if(this.props.question === "" && this.props.user){
+
+
+    return (
+      <section>
+        <DocumentMeta {...metaData} />
+        <div className="container">
+
+        
+
+          <div className="row">
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6
+                            col-md-offset-3 col-lg-offset-3">
+              <h2>
+                Student Assignments:
+              </h2>
+              <Items {...this.props} />
+            </div>
+
+            
+          </div>
+        </div>
+      </section>
+    );
+  }
   else{
     return(
      <section>
@@ -261,5 +264,6 @@ export class List extends Component {
       </section>
       );
   }
+}
   }
 }
