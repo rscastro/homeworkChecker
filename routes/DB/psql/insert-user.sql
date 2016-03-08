@@ -1,0 +1,1 @@
+INSERT INTO users values ($1, $2, $3);

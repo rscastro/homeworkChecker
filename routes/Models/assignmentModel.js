@@ -29,3 +29,32 @@ module.exports.getTeacherAssignments = function(userData, callback, database) {
       return callback(error, null);
     });
 };
+
+module.exports.insertAssignment = function(userData, callback, database) {
+
+  var queryParameters = [userData.owner, userData.question, userData.due_date, userData.category];
+  console.log(queryParameters)
+  return db.query(queryString.insertAssignment, queryParameters)
+    .then(function(eventObjId) {
+      console.log('sucess')
+      return callback(null, eventObjId);
+    })
+    .catch(function(error) {
+      console.log('FAIL', error)
+      return callback(error, null);
+    });
+};
+
+module.exports.insertConnection = function(userData, callback, database) {
+
+  var queryParameters = [userData.student, userData.assignment];
+  return db.query(queryString.insertConnection, queryParameters)
+    .then(function(eventObjId) {
+      console.log('sucessSSS')
+      return callback(null, eventObjId);
+    })
+    .catch(function(error) {
+      console.log('errorrrrr')
+      return callback(error, null);
+    });
+};

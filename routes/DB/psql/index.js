@@ -14,6 +14,9 @@ module.exports = {
   getStudentAssignments: sqlLoad(path.join(__dirname, './get-student-assignments')),
   getTeacherAssignments: sqlLoad(path.join(__dirname, './get-teacher-assignments')),
   insertAnswer: sqlLoad(path.join(__dirname, './insert-answer')),
+  insertAssignment: sqlLoad(path.join(__dirname, './insert-assignment')),
+  insertConnection: sqlLoad(path.join(__dirname, './insert-connection')),
+  insertUser: sqlLoad(path.join(__dirname, './insert-user')),
   populateAnswers: sqlLoad(path.join(__dirname, './populate-answers')),
   getOneUser: sqlLoad(path.join(__dirname, './get-one-user.sql')),
   

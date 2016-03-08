@@ -81,6 +81,54 @@ router.route('/answers')
 
   });
 
+  router.route('/assignments')
+    .post(function(req, res) {
+
+      var loc = req.body;
+      AssignmentModel.insertAssignment({
+        owner: loc.owner,
+        question: loc.question,
+        due_date: loc.due_date,
+        category: loc.category
+      }, function(error, results) {
+        res.json(results)
+
+      })
+
+
+    });
+
+ router.route('/users')
+   .post(function(req, res) {
+
+     var loc = req.body;
+     UserModel.insertUser({
+       full_name: loc.full_name,
+       user_name: loc.user_name,
+       type: loc.type
+     }, function(error, results) {
+       res.json(results)
+
+     })
+
+
+   }); 
+
+   router.route('/connections')
+     .post(function(req, res) {
+
+       var loc = req.body;
+       AssignmentModel.insertConnection({
+         student: loc.student,
+         assignment: loc.assignment
+       }, function(error, results) {
+         res.json(results)
+
+       })
+
+
+     });     
+
 router.route('/populateAnswers/:id')
   .get(function(req, res) {
 

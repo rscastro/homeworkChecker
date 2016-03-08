@@ -8,7 +8,8 @@ db.query(
 
   //Create users table
   "CREATE TABLE IF NOT EXISTS users (full_name VARCHAR(40),"
-    + "user_name VARCHAR(40)," 
+    + "user_name VARCHAR(40),"
+    + "type VARCHAR(40),"  
     + "id SERIAL PRIMARY KEY)"
   )
 .then(function(){

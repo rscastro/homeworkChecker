@@ -1,0 +1,1 @@
+INSERT INTO stud_to_assign values ($1, $2);
