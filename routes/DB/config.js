@@ -19,5 +19,3 @@ var connectionString = process.env.DATABASE_URL||"postgres://localhost:5432/edmo
 var db = pgp(connectionString);
 module.exports = db;
 
-//to test locally you must create a database 'wayd' in postgres
-
